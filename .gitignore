@@ -1,0 +1,28 @@
+# ---------------------------------------------------------------
+# Java build output
+# ---------------------------------------------------------------
+# Compiled bytecode (javac writes these next to the sources by default)
+*.class
+
+# Packaged archives
+*.jar
+*.war
+*.ear
+
+# javac -d output directories used by the notes (out/, build/) plus
+# the usual Maven / Gradle / IDE layouts
+out/
+build/
+bin/
+target/
+*.classpath
+*.project
+.settings/
+
+# ---------------------------------------------------------------
+# JVM runtime artefacts
+# ---------------------------------------------------------------
+# Crash logs and heap dumps produced by the JVM
+hs_err_pid*
+replay_pid*
+*.hprof
