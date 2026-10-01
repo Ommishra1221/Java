@@ -1,6 +1,6 @@
 # Java Generics — Lecture 02: **Invariance, Wildcards & Type Parameters**
 
-> **Source material:** the 5 runnable files in [`../Generics_02/`](../Generics_02) (+ the handwritten pages in [`../Generics_02/notes/notes.pdf`](../Generics_02/notes/notes.pdf)).
+> **Source material:** the 5 runnable files in [`../Generics_02/`](../Java/Generics_02) (+ the handwritten pages in [`../Generics_02/notes/notes.pdf`](../Java/Generics_02/notes/notes.pdf)).
 > **Lecture:** the wildcard lecture that follows *Bounded Types using `extends`* — lecture **#28** (Coder Army). Companion note: [Java Generics 01 — Type Safety & Bounded Types](Java_Generics_01_Type_Safety_And_Bounded_Types.md).
 > **Scope:** `invariance → ? → ? extends → ? super → <T>` — one idea per file, in that order. The arrays-vs-generics contrast is included because it is the *reason* invariance exists.
 > **Verification footprint:** every output, exit code and compiler message quoted here was reproduced with **`javac`/`java` 22.0.1**. The procedure is in [Appendix B](#appendix-b--how-this-note-was-verified).
@@ -21,11 +21,11 @@ flowchart TD
 
 | Step | File | Idea in one line | What it prints |
 |------|------|------------------|----------------|
-| 1 | [`Generics01_InvarianceAndArrayCovariance.java`](../Generics_02/Generics01_InvarianceAndArrayCovariance.java) | `Dog[]` **is an** `Animal[]`, but `List<Dog>` is **not** a `List<Animal>` | 💥 `ArrayStoreException` (exit 1, **intentional**) |
-| 2 | [`Generics02_UnboundedWildcard.java`](../Generics_02/Generics02_UnboundedWildcard.java) | `List<?>` accepts every list; you may read as `Object` and add nothing but `null` | `Generics02_UnboundedWildcard$Dog` |
-| 3 | [`Generics03_UpperBoundedWildcard.java`](../Generics_02/Generics03_UpperBoundedWildcard.java) | `List<? extends Animal>` = **producer**: read `Animal`, write nothing | *(nothing — all statements commented out)* |
-| 4 | [`Generics04_LowerBoundedWildcard.java`](../Generics_02/Generics04_LowerBoundedWildcard.java) | `List<? super Animal>` = **consumer**: write `Animal`s, read `Object` | 6 lines of `… Eating` (see §5) |
-| 5 | [`Generics05_GenericTypesAndMethods.java`](../Generics_02/Generics05_GenericTypesAndMethods.java) | `<T>` gives the type a **name**; `Box<T>` (class) vs `<T> fun(T)` (method) | `hello` / `42` / `T = java.lang.String , b` / `T = java.lang.Integer , 2` |
+| 1 | [`Generics01_InvarianceAndArrayCovariance.java`](../Java/Generics_02/Generics01_InvarianceAndArrayCovariance.java) | `Dog[]` **is an** `Animal[]`, but `List<Dog>` is **not** a `List<Animal>` | 💥 `ArrayStoreException` (exit 1, **intentional**) |
+| 2 | [`Generics02_UnboundedWildcard.java`](../Java/Generics_02/Generics02_UnboundedWildcard.java) | `List<?>` accepts every list; you may read as `Object` and add nothing but `null` | `Generics02_UnboundedWildcard$Dog` |
+| 3 | [`Generics03_UpperBoundedWildcard.java`](../Java/Generics_02/Generics03_UpperBoundedWildcard.java) | `List<? extends Animal>` = **producer**: read `Animal`, write nothing | *(nothing — all statements commented out)* |
+| 4 | [`Generics04_LowerBoundedWildcard.java`](../Java/Generics_02/Generics04_LowerBoundedWildcard.java) | `List<? super Animal>` = **consumer**: write `Animal`s, read `Object` | 6 lines of `… Eating` (see §5) |
+| 5 | [`Generics05_GenericTypesAndMethods.java`](../Java/Generics_02/Generics05_GenericTypesAndMethods.java) | `<T>` gives the type a **name**; `Box<T>` (class) vs `<T> fun(T)` (method) | `hello` / `42` / `T = java.lang.String , b` / `T = java.lang.Integer , 2` |
 
 ### 0.2 Compile and run
 

@@ -1,6 +1,6 @@
 # Java Generics — Lecture 01: **Type Safety, Casting & Bounded Types**
 
-> **Source material:** the 7 runnable files in [`../Generics_01/`](../Generics_01) + the handwritten pages in [`../Generics_01/notes/notes.pdf`](../Generics_01/notes/notes.pdf).
+> **Source material:** the 7 runnable files in [`../Generics_01/`](../Java/Generics_01) + the handwritten pages in [`../Generics_01/notes/notes.pdf`](../Java/Generics_01/notes/notes.pdf).
 > **Lecture:** *Java Generics Deep Dive | Bounded Types using `extends`* — Java Full Course **#27** (Coder Army).
 > **Scope:** `type safety → casting → Object as a universal type → generics → bounds`. Wildcards (`?`, `? extends`, `? super`) are lecture **#28** and live in the companion note [Java Generics 02 — Variance & Wildcards](Java_Generics_02_Variance_And_Wildcards.md).
 > **Naming rule in this folder:** the lecture's `Demo.java … Demo7.java` were renamed `Generics01_…` → `Generics07_…` in lecture order. Helper classes that clashed (`Box` appeared in 4 files) were renamed uniquely (`GenericBox`, `NumberBox`, `ObjectBox`, `Pair`, `SwimmableBox`) so **all 7 files compile together in one package**.
@@ -14,13 +14,13 @@
 
 | # | File | Concept it teaches | What it prints |
 |---|------|--------------------|----------------|
-| 1 | [`Generics01_TypeSafety.java`](../Generics_01/Generics01_TypeSafety.java) | typed language, upcasting & downcasting | `Aditya`, then an **intentional `ClassCastException`** (exit 1) |
-| 2 | [`Generics02_ObjectAsUniversalType.java`](../Generics_01/Generics02_ObjectAsUniversalType.java) | `Object` as a universal type + its 4 limitations | **intentional `ClassCastException`** (exit 1) |
-| 3 | [`Generics03_GenericClass.java`](../Generics_01/Generics03_GenericClass.java) | `class GenericBox<T>` — the generic class | `15`, `Hello`, `false` |
-| 4 | [`Generics04_MultipleTypeParameters.java`](../Generics_01/Generics04_MultipleTypeParameters.java) | `class Pair<T, U>` | `23 , Aditya` |
-| 5 | [`Generics05_GenericMethods.java`](../Generics_01/Generics05_GenericMethods.java) | generic methods + type inference | `11 , 23` |
-| 6 | [`Generics06_BoundedTypeParameter.java`](../Generics_01/Generics06_BoundedTypeParameter.java) | upper bound `T extends Number` | `5.0` |
-| 7 | [`Generics07_MultipleBounds.java`](../Generics_01/Generics07_MultipleBounds.java) | multiple bounds `T extends Animal & Swimmable` | nothing — a **compile-time** demonstration |
+| 1 | [`Generics01_TypeSafety.java`](../Java/Generics_01/Generics01_TypeSafety.java) | typed language, upcasting & downcasting | `Aditya`, then an **intentional `ClassCastException`** (exit 1) |
+| 2 | [`Generics02_ObjectAsUniversalType.java`](../Java/Generics_01/Generics02_ObjectAsUniversalType.java) | `Object` as a universal type + its 4 limitations | **intentional `ClassCastException`** (exit 1) |
+| 3 | [`Generics03_GenericClass.java`](../Java/Generics_01/Generics03_GenericClass.java) | `class GenericBox<T>` — the generic class | `15`, `Hello`, `false` |
+| 4 | [`Generics04_MultipleTypeParameters.java`](../Java/Generics_01/Generics04_MultipleTypeParameters.java) | `class Pair<T, U>` | `23 , Aditya` |
+| 5 | [`Generics05_GenericMethods.java`](../Java/Generics_01/Generics05_GenericMethods.java) | generic methods + type inference | `11 , 23` |
+| 6 | [`Generics06_BoundedTypeParameter.java`](../Java/Generics_01/Generics06_BoundedTypeParameter.java) | upper bound `T extends Number` | `5.0` |
+| 7 | [`Generics07_MultipleBounds.java`](../Java/Generics_01/Generics07_MultipleBounds.java) | multiple bounds `T extends Animal & Swimmable` | nothing — a **compile-time** demonstration |
 
 ### 0.2 Compile and run everything
 
