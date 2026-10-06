@@ -1,7 +1,7 @@
 # Java Generics — Lecture 02: **Invariance, Wildcards & Type Parameters**
 
 > **Source material:** the 5 runnable files in this folder (see §0.1) (+ the handwritten pages in [`notes.pdf`](notes.pdf)).
-> **Lecture:** the wildcard lecture that follows *Bounded Types using `extends`* — lecture **#28** (Coder Army). Companion note: [Java Generics 01 — Type Safety & Bounded Types](../Generics_Type_Safety_And_Bounded_Types/Java_Generics_01_Type_Safety_And_Bounded_Types.md).
+> **Lecture:** the wildcard lecture that follows *Bounded Types using `extends`* — lecture **#28** (Coder Army). Companion note: [Java Generics 01 — Type Safety & Bounded Types](../Generics_01_Type_Safety_And_Bounded_Types/Generics_01_Type_Safety_And_Bounded_Types.md).
 > **Scope:** `invariance → ? → ? extends → ? super → <T>` — one idea per file, in that order. The arrays-vs-generics contrast is included because it is the *reason* invariance exists.
 > **Verification footprint:** every output, exit code and compiler message quoted here was reproduced with **`javac`/`java` 22.0.1**. The procedure is in [Appendix B](#appendix-b--how-this-note-was-verified).
 
@@ -31,7 +31,7 @@ flowchart TD
 
 ```bash
 # from the repository root
-cd Generics/Generics_Variance_And_Wildcards
+cd Generics_02_Variance_And_Wildcards
 javac -Xlint:all -d out *.java     # clean: no errors, no warnings
 
 java -cp out Generics01_InvarianceAndArrayCovariance   # 💥 ArrayStoreException (intentional)
@@ -645,7 +645,7 @@ error: non-static type variable T cannot be referenced from a static context
            ^
 ```
 
-A `static` member belongs to the class, not to an instance — but `T` only exists per instance (`Box<String>` vs `Box<Integer>`). Same reason `new T()` and `T.class` are impossible (see [lecture 01 §11](../Generics_Type_Safety_And_Bounded_Types/Java_Generics_01_Type_Safety_And_Bounded_Types.md#11-under-the-hood-erasure-hidden-casts-and-raw-types)).
+A `static` member belongs to the class, not to an instance — but `T` only exists per instance (`Box<String>` vs `Box<Integer>`). Same reason `new T()` and `T.class` are impossible (see [lecture 01 §11](../Generics_01_Type_Safety_And_Bounded_Types/Generics_01_Type_Safety_And_Bounded_Types.md#11-under-the-hood-erasure-hidden-casts-and-raw-types)).
 
 ---
 
@@ -854,7 +854,7 @@ static <T> void e(List<T> named)                 // ONE name for the same type e
 ## 12. Verify it yourself
 
 ```bash
-cd Generics/Generics_Variance_And_Wildcards
+cd Generics_02_Variance_And_Wildcards
 javac -Xlint:all -d out *.java
 
 java -cp out Generics01_InvarianceAndArrayCovariance
@@ -919,7 +919,7 @@ java -cp out Generics05_GenericTypesAndMethods
 ## Appendix B — how this note was verified
 
 ```bash
-cd Generics/Generics_Variance_And_Wildcards
+cd Generics_02_Variance_And_Wildcards
 javac -Xlint:all -d out *.java     # all 5 files together: 0 errors, 0 warnings
 java  -cp out <ClassName>          # each class run individually
 ```
@@ -928,4 +928,4 @@ java  -cp out <ClassName>          # each class run individually
 * **Compiler-message claims** → produced by uncommenting the offending line in a scratch copy; the primary message is quoted verbatim, the `Note: Some messages have been simplified…` footer is reproduced where `javac` prints it.
 * **"Even a `Dog` is refused" (§4.3), the `CAP#1` clauses, the reifiability errors (§8) and the inference messages (§6.3)** → each reproduced separately with its own minimal source file, so no message is inferred from a similar-looking one.
 
-**Previous note:** [Java Generics 01 — Type Safety, Casting & Bounded Types](../Generics_Type_Safety_And_Bounded_Types/Java_Generics_01_Type_Safety_And_Bounded_Types.md).
+**Previous note:** [Java Generics 01 — Type Safety, Casting & Bounded Types](../Generics_01_Type_Safety_And_Bounded_Types/Generics_01_Type_Safety_And_Bounded_Types.md).

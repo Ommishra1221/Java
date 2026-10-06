@@ -4,7 +4,7 @@
 > **Lecture:** *Java Strings Part 2 | All String Methods + StringBuilder vs StringBuffer* (Coder Army). <https://youtu.be/JcAD9a22Rks>
 > **Scope:** every way to **construct** a String (literal, copy, `char[]`, `char[]` slice, `byte[]` slice, `StringBuilder`/`StringBuffer`), the full **method tour** (length/emptiness, char access, comparison, searching, extraction, transformation, split/join, conversion, formatting), and the **mutable** alternatives `StringBuilder` (fast, not synchronized) and `StringBuffer` (synchronized, thread-safe).
 > **File layout:** the original scratch files (`Demo.java`, `Demo2.java`, `Demo3.java`) were replaced by **exactly two** programs — `String01_…` (constructors & methods, 3 demos) and `String02_…` (builders, 3 demos).
-> **Part 1** lives in the sibling folder `../String_Pool_Immutability_Internals/` (pool, identity, immutability).
+> **Part 1** lives in the sibling folder `../String_01_Pool_Immutability_Internals/` (pool, identity, immutability).
 > **Verification footprint:** every output, exit code, bytecode listing and error message here was reproduced on **`javac`/`java` 22.0.1**. Commands are in [Appendix B](#appendix-b--how-this-note-was-verified).
 
 > ⚠️ **Corrections to the original scratch comments.** The commented-out expectations in the source `Demo2.java` were **wrong** in several places (they were never executed). This note prints the **actual** values — see [§9](#9-corrections-to-the-original-scratch-comments).
@@ -24,7 +24,7 @@
 ### 0.2 Compile and run everything
 
 ```bash
-cd String/String_Methods_And_Builders
+cd String_02_Methods_And_Builders
 
 # compile BOTH files together (they live in the default package)
 javac -Xlint:all -d out *.java          # clean: no errors, no warnings
@@ -342,7 +342,7 @@ These are exactly the kind of claims that should be **executed**, not assumed �
 ## Appendix B — how this note was verified
 
 ```bash
-cd String/String_Methods_And_Builders
+cd String_02_Methods_And_Builders
 javac -Xlint:all -d out *.java        # both files: 0 errors, 0 warnings
 java  -cp out <ClassName> [mode]      # each entry point / mode run individually
 ```

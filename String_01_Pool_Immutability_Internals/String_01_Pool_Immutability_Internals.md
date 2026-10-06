@@ -4,7 +4,7 @@
 > **Lecture:** *String Pool, Immutability, Internals | Java Full Course* **#25** (Coder Army). <https://youtu.be/N0b8lRXtK_Y>
 > **Scope:** how a String is stored (pool vs heap), what `==` really compares, compile-time **constant folding** vs runtime concatenation, reference copying and reassignment, `intern()`, and why **immutability** turns `s += …` in a loop into an `O(n²)` trap.
 > **File layout:** the original scratch files (`Demo.java`, `Demo2.java`, `Demo3.java`) were replaced by **exactly two** programs — `String01_…` (pool & identity, 4 demos) and `String02_…` (immutability & cost, 3 demos) — so the whole part compiles as one package.
-> **Part 2** lives in the sibling folder `../String_Methods_And_Builders/` (constructors, the method tour, `StringBuilder`/`StringBuffer`).
+> **Part 2** lives in the sibling folder `../String_02_Methods_And_Builders/` (constructors, the method tour, `StringBuilder`/`StringBuffer`).
 > **Verification footprint:** every output, exit code, bytecode listing and compiler-error message printed here was reproduced with **`javac`/`java` 22.0.1**. The exact commands are in [Appendix B](#appendix-b--how-this-note-was-verified).
 
 ---
@@ -22,7 +22,7 @@
 ### 0.2 Compile and run everything
 
 ```bash
-cd String/String_Pool_Immutability_Internals
+cd String_01_Pool_Immutability_Internals
 
 # compile BOTH files together (they live in the default package)
 javac -Xlint:all -d out *.java          # clean: no errors, no warnings
@@ -355,7 +355,7 @@ All reproduced on JDK 22.0.1; text is verbatim.
 ## Appendix B — how this note was verified
 
 ```bash
-cd String/String_Pool_Immutability_Internals
+cd String_01_Pool_Immutability_Internals
 javac -Xlint:all -d out *.java        # both files: 0 errors, 0 warnings
 java  -cp out <ClassName> [mode]      # each entry point / mode run individually
 ```

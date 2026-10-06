@@ -1,6 +1,6 @@
 # Java Memory Management — **Stack, Heap, Method Area, PC Register, GC & OutOfMemoryError**
 
-> **Source material:** the 2 runnable files in this folder — [`Memory01_RuntimeDataAreas.java`](Memory01_RuntimeDataAreas.java) and [`Memory02_HeapGCAndOutOfMemory.java`](Memory02_HeapGCAndOutOfMemory.java) — plus the handwritten pages in [`notes/notes.pdf`](notes/notes.pdf).
+> **Source material:** the 2 runnable files in this folder — [`Memory01_RuntimeDataAreas.java`](Memory01_RuntimeDataAreas.java) and [`Memory02_HeapGCAndOutOfMemory.java`](Memory02_HeapGCAndOutOfMemory.java) — plus the handwritten pages in [`notes.pdf`](notes.pdf).
 > **Lecture:** *Java Memory Management Explained in Depth | Stack, Heap, Method Area & PC* — Java Full Course **#45** (Coder Army). <https://youtu.be/kjETbH63Pco>
 > **Scope:** the **whole** lecture in one file — the JVM's **runtime data areas** (PC register, Java Stack, Native Method Stack, Method Area/Metaspace, Heap) **and** what happens inside the heap (object lifetimes, reachability, generational collection, the String pool, reference strengths, `OutOfMemoryError`).
 > **File layout:** the original scratch files (`Demo.java`, an empty `Demo2.java`) were replaced by **exactly two** programs — `Memory01_…` (Part I, 4 demos) and `Memory02_…` (Part II, 6 modes) — so the whole lecture compiles as one package and runs from two entry points.
@@ -28,7 +28,7 @@ The first program covers [Part I](#part-i--the-runtime-data-areas); the second c
 ### 0.2 Compile and run everything
 
 ```bash
-cd Java/Memory_Management
+cd Memory_Management
 
 # compile BOTH files together (they live in the default package)
 javac -Xlint:all -d out *.java          # clean: no errors, no warnings
@@ -1015,7 +1015,7 @@ The source files mark their intent explicitly:
 Nothing above is from memory. The exact procedure:
 
 ```bash
-cd Java/Memory_Management
+cd Memory_Management
 javac -Xlint:all -d out *.java        # both files together: 0 errors, 0 warnings
 java  -cp out <ClassName> [mode]      # each entry point / mode run individually
 ```
