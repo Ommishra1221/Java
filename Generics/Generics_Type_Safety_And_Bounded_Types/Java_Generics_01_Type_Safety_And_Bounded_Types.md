@@ -1,8 +1,8 @@
 # Java Generics — Lecture 01: **Type Safety, Casting & Bounded Types**
 
-> **Source material:** the 7 runnable files in [`../Generics_01/`](../Java/Generics_01) + the handwritten pages in [`../Generics_01/notes/notes.pdf`](../Java/Generics_01/notes/notes.pdf).
+> **Source material:** the 7 runnable files in this folder (see §0.1) + the handwritten pages in [`notes.pdf`](notes.pdf).
 > **Lecture:** *Java Generics Deep Dive | Bounded Types using `extends`* — Java Full Course **#27** (Coder Army).
-> **Scope:** `type safety → casting → Object as a universal type → generics → bounds`. Wildcards (`?`, `? extends`, `? super`) are lecture **#28** and live in the companion note [Java Generics 02 — Variance & Wildcards](Java_Generics_02_Variance_And_Wildcards.md).
+> **Scope:** `type safety → casting → Object as a universal type → generics → bounds`. Wildcards (`?`, `? extends`, `? super`) are lecture **#28** and live in the companion note [Java Generics 02 — Variance & Wildcards](../Generics_Variance_And_Wildcards/Java_Generics_02_Variance_And_Wildcards.md).
 > **Naming rule in this folder:** the lecture's `Demo.java … Demo7.java` were renamed `Generics01_…` → `Generics07_…` in lecture order. Helper classes that clashed (`Box` appeared in 4 files) were renamed uniquely (`GenericBox`, `NumberBox`, `ObjectBox`, `Pair`, `SwimmableBox`) so **all 7 files compile together in one package**.
 > **Verification footprint:** every output, exit code and compiler message printed in this note was reproduced with **`javac`/`java` 22.0.1** on this machine. The exact commands are in [Appendix B](#appendix-b--how-this-note-was-verified).
 
@@ -14,19 +14,19 @@
 
 | # | File | Concept it teaches | What it prints |
 |---|------|--------------------|----------------|
-| 1 | [`Generics01_TypeSafety.java`](../Java/Generics_01/Generics01_TypeSafety.java) | typed language, upcasting & downcasting | `Aditya`, then an **intentional `ClassCastException`** (exit 1) |
-| 2 | [`Generics02_ObjectAsUniversalType.java`](../Java/Generics_01/Generics02_ObjectAsUniversalType.java) | `Object` as a universal type + its 4 limitations | **intentional `ClassCastException`** (exit 1) |
-| 3 | [`Generics03_GenericClass.java`](../Java/Generics_01/Generics03_GenericClass.java) | `class GenericBox<T>` — the generic class | `15`, `Hello`, `false` |
-| 4 | [`Generics04_MultipleTypeParameters.java`](../Java/Generics_01/Generics04_MultipleTypeParameters.java) | `class Pair<T, U>` | `23 , Aditya` |
-| 5 | [`Generics05_GenericMethods.java`](../Java/Generics_01/Generics05_GenericMethods.java) | generic methods + type inference | `11 , 23` |
-| 6 | [`Generics06_BoundedTypeParameter.java`](../Java/Generics_01/Generics06_BoundedTypeParameter.java) | upper bound `T extends Number` | `5.0` |
-| 7 | [`Generics07_MultipleBounds.java`](../Java/Generics_01/Generics07_MultipleBounds.java) | multiple bounds `T extends Animal & Swimmable` | nothing — a **compile-time** demonstration |
+| 1 | [`Generics01_TypeSafety.java`](Generics01_TypeSafety.java) | typed language, upcasting & downcasting | `Aditya`, then an **intentional `ClassCastException`** (exit 1) |
+| 2 | [`Generics02_ObjectAsUniversalType.java`](Generics02_ObjectAsUniversalType.java) | `Object` as a universal type + its 4 limitations | **intentional `ClassCastException`** (exit 1) |
+| 3 | [`Generics03_GenericClass.java`](Generics03_GenericClass.java) | `class GenericBox<T>` — the generic class | `15`, `Hello`, `false` |
+| 4 | [`Generics04_MultipleTypeParameters.java`](Generics04_MultipleTypeParameters.java) | `class Pair<T, U>` | `23 , Aditya` |
+| 5 | [`Generics05_GenericMethods.java`](Generics05_GenericMethods.java) | generic methods + type inference | `11 , 23` |
+| 6 | [`Generics06_BoundedTypeParameter.java`](Generics06_BoundedTypeParameter.java) | upper bound `T extends Number` | `5.0` |
+| 7 | [`Generics07_MultipleBounds.java`](Generics07_MultipleBounds.java) | multiple bounds `T extends Animal & Swimmable` | nothing — a **compile-time** demonstration |
 
 ### 0.2 Compile and run everything
 
 ```bash
 # from the repository root
-cd Generics_01
+cd Generics/Generics_Type_Safety_And_Bounded_Types
 
 # compile ALL files together (they live in the default package)
 javac -Xlint:all -d out *.java          # clean: no errors, no warnings
@@ -709,7 +709,7 @@ error: incompatible types: inference variable T has incompatible bounds
 
 The compiler had to satisfy **two** constraints — `T` must accept `23` (so `Integer`) *and* `T` must be assignable to the declared variable (so `String`) — and no type satisfies both. Inference is still *checking*.
 
-> ⚠️ Inference is cleverer than beginners expect when the result is **not** constrained: two different argument types are legal if a common supertype exists (see [lecture 02 §6](Java_Generics_02_Variance_And_Wildcards.md#6-step-5--type-parameters-t-generic-classes-and-methods), where `fun("a", 1)` compiles instead of failing).
+> ⚠️ Inference is cleverer than beginners expect when the result is **not** constrained: two different argument types are legal if a common supertype exists (see [lecture 02 §6](../Generics_Variance_And_Wildcards/Java_Generics_02_Variance_And_Wildcards.md#6-step-5--type-parameters-t-generic-classes-and-methods), where `fun("a", 1)` compiles instead of failing).
 
 ### 8.3 Walkthrough — `Generics05_GenericMethods.java`
 
@@ -1170,7 +1170,7 @@ GenericBox<Integer> a = new GenericBox<>(10);
 GenericBox<String>  b = a;   // 🚫 incompatible types: GenericBox<Integer> cannot be converted to GenericBox<String>
 ```
 
-`GenericBox<Integer>` and `GenericBox<String>` are **unrelated types** — like `String` and `Integer`. (Relaxing that rule is exactly what *wildcards* do — [lecture 02](Java_Generics_02_Variance_And_Wildcards.md).)
+`GenericBox<Integer>` and `GenericBox<String>` are **unrelated types** — like `String` and `Integer`. (Relaxing that rule is exactly what *wildcards* do — [lecture 02](../Generics_Variance_And_Wildcards/Java_Generics_02_Variance_And_Wildcards.md).)
 
 ---
 
@@ -1363,7 +1363,7 @@ The source files mark their intent explicitly so nothing is ambiguous:
 Nothing above is from memory. The exact procedure:
 
 ```bash
-cd Generics_01
+cd Generics/Generics_Type_Safety_And_Bounded_Types
 javac -Xlint:all -d out *.java     # all 7 files together: 0 errors, 0 warnings
 java  -cp out <ClassName>          # each class run individually
 ```
@@ -1373,4 +1373,4 @@ java  -cp out <ClassName>          # each class run individually
 * **Bytecode claims (§11.2)** → `javap -c -p` on the compiled classes.
 * **Warning claims** → `javac -Xlint:unchecked` / `-Xlint:all` counts, quoted with the warning category in brackets.
 
-**Next lecture (#28):** wildcards — `?`, `? extends`, `? super` — which relax the "`GenericBox<Integer>` ≠ `GenericBox<String>`" rule you met in §12, Mistake 10 → [Java Generics 02 — Variance & Wildcards](Java_Generics_02_Variance_And_Wildcards.md).
+**Next lecture (#28):** wildcards — `?`, `? extends`, `? super` — which relax the "`GenericBox<Integer>` ≠ `GenericBox<String>`" rule you met in §12, Mistake 10 → [Java Generics 02 — Variance & Wildcards](../Generics_Variance_And_Wildcards/Java_Generics_02_Variance_And_Wildcards.md).
