@@ -29,6 +29,25 @@ java  -cp out <MainClass> [mode]
 | **#27** | Generics — type safety, casting, generic classes/methods, bounded types | [`Generics_01_Type_Safety_And_Bounded_Types/`](Generics_01_Type_Safety_And_Bounded_Types/) | [`…Bounded_Types.md`](Generics_01_Type_Safety_And_Bounded_Types/Generics_01_Type_Safety_And_Bounded_Types.md) | Coder Army |
 | **#28** | Generics — invariance, array covariance, wildcards (`?`, `? extends`, `? super`) | [`Generics_02_Variance_And_Wildcards/`](Generics_02_Variance_And_Wildcards/) | [`…Wildcards.md`](Generics_02_Variance_And_Wildcards/Generics_02_Variance_And_Wildcards.md) | Coder Army |
 | **#45** | Memory management — runtime data areas, heap, GC, `OutOfMemoryError` | [`Memory_Management/`](Memory_Management/) | [`Memory_Management.md`](Memory_Management/Memory_Management.md) | <https://youtu.be/kjETbH63Pco> |
+| **#47** | Multithreading 1 — process vs thread, shared memory, concurrency, race conditions | [`Multithreading_01_Thread_And_Process_Basics/`](Multithreading_01_Thread_And_Process_Basics/) | [`…Process_Basics.md`](Multithreading_01_Thread_And_Process_Basics/Multithreading_01_Thread_And_Process_Basics.md) | <https://youtu.be/fyAW0W526RM> |
+| **#48** | Multithreading 2 — thread creation (`Thread`/`Runnable`/lambda) & the lifecycle states | [`Multithreading_02_Thread_Creation_And_Lifecycle/`](Multithreading_02_Thread_Creation_And_Lifecycle/) | [`…Lifecycle.md`](Multithreading_02_Thread_Creation_And_Lifecycle/Multithreading_02_Thread_Creation_And_Lifecycle.md) | <https://youtu.be/cVRdeQFP5IM> |
+| **#49** | Multithreading 3 — `sleep`, `join`, `yield`, `interrupt`, `isAlive`, priority & daemon | [`Multithreading_03_Thread_Methods_And_Control/`](Multithreading_03_Thread_Methods_And_Control/) | [`…Control.md`](Multithreading_03_Thread_Methods_And_Control/Multithreading_03_Thread_Methods_And_Control.md) | <https://youtu.be/ZPxJby0GeOQ> |
+| **#50** | Multithreading 4 — race conditions, visibility, ordering, deadlock | [`Multithreading_04_Concurrency_Problems/`](Multithreading_04_Concurrency_Problems/) | [`…Problems.md`](Multithreading_04_Concurrency_Problems/Multithreading_04_Concurrency_Problems.md) | <https://youtu.be/lrrdN_c0HQ4> |
+| **#51** | Multithreading 5 — monitors & synchronization, static sync, custom locks | [`Multithreading_05_Synchronization_And_Monitors/`](Multithreading_05_Synchronization_And_Monitors/) | [`…Monitors.md`](Multithreading_05_Synchronization_And_Monitors/Multithreading_05_Synchronization_And_Monitors.md) | <https://youtu.be/k9sURAu0xT8> |
+| **#52** | Multithreading 6 — inter-thread communication, `wait()`, `notify()`, `notifyAll()` | [`Multithreading_06_Inter_Thread_Communication/`](Multithreading_06_Inter_Thread_Communication/) | [`…Communication.md`](Multithreading_06_Inter_Thread_Communication/Multithreading_06_Inter_Thread_Communication.md) | <https://youtu.be/EZS19NLnsvc> |
+| **#53** | Multithreading 7 — `ReentrantLock`, `ReadWriteLock`, `StampedLock`, `Semaphore`, `Condition` | [`Multithreading_07_Advanced_Locking/`](Multithreading_07_Advanced_Locking/) | [`…Locking.md`](Multithreading_07_Advanced_Locking/Multithreading_07_Advanced_Locking.md) | <https://youtu.be/JW6-TCU0iS4> |
+| **#54** | Multithreading 8 — atomic variables & lock-free updates (`AtomicInteger`, `AtomicReference`, `LongAdder`) | [`Multithreading_08_Atomic_Variables_And_Lock_Free/`](Multithreading_08_Atomic_Variables_And_Lock_Free/) | [`…Lock_Free.md`](Multithreading_08_Atomic_Variables_And_Lock_Free/Multithreading_08_Atomic_Variables_And_Lock_Free.md) | <https://youtu.be/ujF2gNsCfBE> |
+| **#55** | Multithreading 9 — CAS retry & the ABA problem (`AtomicStampedReference`) | [`Multithreading_09_CAS_And_ABA_Problem/`](Multithreading_09_CAS_And_ABA_Problem/) | [`…ABA_Problem.md`](Multithreading_09_CAS_And_ABA_Problem/Multithreading_09_CAS_And_ABA_Problem.md) | <https://youtu.be/2nBJPpERul4> |
+| **#56** | Multithreading 10 — Executor framework: thread pools, `Callable` & `Future`, rejection, shutdown | [`Multithreading_10_Executor_Framework/`](Multithreading_10_Executor_Framework/) | [`…Executor_Framework.md`](Multithreading_10_Executor_Framework/Multithreading_10_Executor_Framework.md) | <https://youtu.be/VPtaTUSaBOM> |
+| **#57** | Multithreading 11 — `CompletableFuture`, `ForkJoinPool`, `ThreadLocal` & virtual threads | [`Multithreading_11_CompletableFuture_ForkJoin_VirtualThreads/`](Multithreading_11_CompletableFuture_ForkJoin_VirtualThreads/) | [`…VirtualThreads.md`](Multithreading_11_CompletableFuture_ForkJoin_VirtualThreads/Multithreading_11_CompletableFuture_ForkJoin_VirtualThreads.md) | <https://youtu.be/FGN225TiXaE> |
+
+---
+
+## Revision notes
+
+| Collection | File | Covers |
+|------------|------|--------|
+| Multithreading — interview revision | [`Revision Notes/Multithreading_Interview_Revision.md`](Revision%20Notes/Multithreading_Interview_Revision.md) | all of Parts **#47–#57** in one digest: the one-page mental model, per-topic cheat tables, rapid-fire traps, and an interview Q&A section |
 
 ---
 
